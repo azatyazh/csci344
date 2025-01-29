@@ -3,3 +3,8 @@ body {
 }
 
 /* Your code here */
+
+header {
+    background-color: rgb(233, 233, 79);
+    padding: 40px;
+}
