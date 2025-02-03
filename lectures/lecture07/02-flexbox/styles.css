@@ -4,10 +4,18 @@ body {
 
 main {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 section {
     border: solid 4px orangered;
     width: 200px;
     height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

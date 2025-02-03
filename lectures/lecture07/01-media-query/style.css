@@ -25,6 +25,23 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    /* Your code here! */
+
+    header {
+        background-color: #444;
+        color: white;
+        height: 10vh;
+    }
+
+    main {
+        background-color: rgb(214, 212, 212);
+        color: black;
+        height: 80;
+    }
+
+    footer {
+        background-color: coral;
+        color: white;
+        height: 10vh;
+    }
 }
 

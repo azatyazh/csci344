@@ -33,24 +33,44 @@ body {
 /* Task 3 */
 
 .container {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  gap: 20px;
 }
 
 header {
+  /* assign the child to the right slot */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  
+  /* 
+  shortcuts
+  grid-column: 1/4;  
+  grid-column: 1/ span 3;
+  */
 }
 
 nav {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
 aside {
+  grid-row: 2 / 4;
 }
 
 section {
+  grid-row: 2 / 4;
 }
 
 main {
+  min-height: 80vh;
+
 }
 
 footer {
+  grid-column-start: 4;
+  grid-column-end: 1;
 }
 
 

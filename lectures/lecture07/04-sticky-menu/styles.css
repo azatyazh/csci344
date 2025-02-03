@@ -30,6 +30,16 @@ main {
 
 /* End Debugging Code */
 
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 main {
     padding: 0 15vw;
