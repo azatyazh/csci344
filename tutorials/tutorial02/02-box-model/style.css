@@ -30,8 +30,7 @@ Part 1: Create some style blocks to style the card.
     padding: 0px;
     padding-top: 3px;
     padding-bottom: 15px;
-    margin-left: 20px;
-    margin-right: 1400px;
+    width: 300px;
     
     /* box-sizing: border-box; */
 }

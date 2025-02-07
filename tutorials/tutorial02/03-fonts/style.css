@@ -1,15 +1,24 @@
 /* Make sure that your @import statement is at the top of your CSS file  */
-
+@import url('https://fonts.googleapis.com/css2?family=Agu+Display&family=Cedarville+Cursive&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&display=swap');
 
 html {
     scroll-behavior: smooth;
 }
 
 body * {
+    font-family: "Poppins", serif;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins", serif;
     margin: 0;
+}
+
+h1{
+    font-family: "Edu AU VIC WA NT Dots", serif;
+}
+
+h2{
+    font-family: "Edu AU VIC WA NT Dots", serif;
 }
