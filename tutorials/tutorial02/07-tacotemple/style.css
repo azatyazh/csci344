@@ -1,18 +1,18 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    
+    grid-template-columns: repeat(2, 1fr);
     gap:20px;
     
 }
 
 section {
     display: grid;
-    grid-template-columns: auto 160px;
+    grid-template-columns: 1fr 170px;
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -20,4 +20,11 @@ section {
 
     /* margin: 20px; */
     padding: 20px; 
+}
+
+@media screen and (max-width: 1000px){
+    main {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 }

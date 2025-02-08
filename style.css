@@ -149,3 +149,8 @@ a:hover {
 }
 
 /* Sections */
+
+.container{
+    min-height: 500px;
+    margin: 25px;
+}
