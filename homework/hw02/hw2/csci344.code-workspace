@@ -1,13 +1,11 @@
 {
 	"folders": [
 		{
-			"path": "../../csci344"
+			"path": "../../.."
 		},
 		{
-			"path": ".."
+			"path": "../../../../personal2025"
 		}
 	],
-	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "personal2025"
-	}
+	"settings": {}
 }
