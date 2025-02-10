@@ -1,11 +1,11 @@
 /* General */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
+/* 
 * {
     margin: 0;
     padding: 0;
-}
+} */
 
 body {
     font-family: "Poppins", serif;
@@ -48,18 +48,31 @@ nav {
     list-style: none;
     font-size: 1.5rem;
 }
-
-a {
+nav a {
     color: darkslategrey;
     text-decoration: none;
     text-decoration: rgb(248, 244, 244);
 }
 
-a:hover {
+nav a:hover {
     color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
     text-decoration-color: rgb(181, 181, 181);
+
+}
+
+main a {
+    color: darkslategrey;
+    text-decoration: none;
+    text-decoration: rgb(248, 244, 244);
+}
+
+main a:hover {
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+    text-decoration-color: rgb(213, 15, 15);
 }
 
 .logo {
