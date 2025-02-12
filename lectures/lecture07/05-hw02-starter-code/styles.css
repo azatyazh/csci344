@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* Not mine */
+
 body * {
     box-sizing: border-box;
 }
@@ -8,14 +12,21 @@ body {
 }
 
 /* Begin Debugging Code */
-/* header,
+header,
 main,
 main section,
+
 nav,
 .logo {
-    border: solid 2px #CCC;
+    /* border: solid 2px #c0b6b6; */
     padding: 10px;
     margin: 10px;
+    font-family: "Comfortaa", serif;
+   
+}
+
+nav a {
+    color: rgb(31, 146, 195);
 }
 
 .logo {
@@ -23,29 +34,31 @@ nav,
     font-weight: normal;
 }
 
-aside,
 body>header,
 main,
 .news-feed {
-    border: solid 4px #000;
+    /* border: solid 4px #000; */
     padding: 10px;
     margin: 10px;
-    font-family: monospace;
-} */
+    /* font-family: monospace; */
+}
 
 /* End Debugging Code */
 
 .top-nav{
     position: sticky;
+    font-family: "Comfortaa", serif;
     top: 0;
     left: 0;
-    background-color: pink;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 30px;
-    padding-right: 30px;
+    padding-right: 10px;
+    font-size: 15px;
+
 }
 
 .posts {
@@ -64,18 +77,37 @@ main,
     position: fixed;
     top: 100px;
     left: 65vw;
-    background-color: pink;
+    background-color: white;
     min-height: 80vh;
     width: calc(35vw - 30px) ;
 }
 
+.suggestions-panel header {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    top: 100px;
+    padding: 60px;
+    
+}
+
+.suggestions-panel section {
+    border: solid 1px orangered;
+    width: 270px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: "Roboto", serif;
+    color:#888888;
+}
 main {
     width: calc(60vw - 30px);
     margin-top: 22px;
     margin-left: 5vw;
 }
-
-
 
 @media (max-width: 800px) {
     .suggestions-panel {
@@ -87,4 +119,5 @@ main {
         margin-left: 2vw;
         margin-right: 2vw;
     }
+
 }
