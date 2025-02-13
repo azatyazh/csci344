@@ -7,41 +7,49 @@ function setup() {
     //sets up your canvas 
     createCanvas(canvasWidth, canvasHeight);
 
-
-
-
-
     // invoke any drawing functions inside of setup.
     // functions should all go between "createCanvas()" and "drawGrid()"
-    draw5Circles();
-    // draw5RedSquares();
-
+    draw5CirclesFor();
+    draw5RedSquares();
 
     //draaws the grid 
     drawGrid(canvasWidth, canvasHeight);
-}
-
-
-
-
 
 
 // my first function
-function draw5Circles() {
+function draw5CirclesFor() {
     noFill();
     // fill('red');
 
-    let x = 100;
-    let y = 200;
+    let x = 40;
+    let y = 40;
     let d = 50;
 
     let i = 0;
 
-    while(i < 5) {
-        circle(x, y + 50 * i, d);
-        i++;                
-                          
+    while(i < 170) {
+
+        if (i % 2 === 0) {
+            fill('white');
+        } else {
+            fill('teal');
+        }
+
+        circle(x, y, d);
+        circle(x + 600, y, d);
+        circle(x + 300, y, d);
+        circle(x + 900, y, d);
+        circle(x + 1200, y, d);
+        i++;            
+        y += 40;                
     }
+
+    // while (y < 1000) {
+    //     y += 10;
+    //     d += 1;
+    //     circle (x, y, d);
+    // }
+
     // circle (100, 200, 50);
     // circle(100, 250, 50);
     // circle(100, 300, 50);
@@ -50,10 +58,31 @@ function draw5Circles() {
 }
 
 function draw5RedSquares() {
-    fill("red");
-    square(320, 200, 50); // topLeftX, topLeftY, width
-    square(320, 250, 50);
-    square(320, 300, 50);
-    square(320, 350, 50);
-    square(320, 400, 50);
+    noFill();
+
+    let x = 30;
+    let y = 50;
+    let d = 10; 
+    let e = 10;
+
+    let i = 0; 
+
+    while (i < 170) {
+
+        if (i % 2 === 0) {
+            fill ('black');
+        } else {
+            fill ('grey');
+        }
+        rect(x + 100, y, d);
+        rect(x + 200, y, d);
+        rect(x + 300, y, d);
+        rect(x + 400, y, d);
+        rect(x + 500, y, d);
+        i++;
+        y += 210;
+        // x += 20;
+    }
+}
+
 }

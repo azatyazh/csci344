@@ -57,7 +57,7 @@ main,
 /* username and sign out effect */
 nav b {
     color: rgb(0, 0, 0);
-    padding: 10px;
+    padding: 20px;
     font-size: 20px;
     font-family: "Roboto", serif;
 }
@@ -67,6 +67,11 @@ nav a {
     color: rgb(31, 146, 195);
     font-size: 20px;
     font-family: "Roboto", serif;
+
+}
+
+.profile {
+    width: 110px;
 
 }
 
