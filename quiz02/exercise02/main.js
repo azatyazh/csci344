@@ -50,6 +50,7 @@ function drawMonster(x, y, size, color, isSuprised){
 
     // }
 
+    // make bulls eye with different colors for quiz 
 
 
     //set the color 
