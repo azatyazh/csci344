@@ -16,8 +16,10 @@ const search = (ev) => {
 };
 
 // Part 1.1a
-const isClassFull = (course) => {
-    return course.EnrollmentMax <= course.EnrollmentCurrent;
+const isClassOpen = (course) => {
+    //if they're applying the "open only" filter: 
+    
+    return course.EnrollmentMax < course.EnrollmentCurrent;
 };
 
 // Part 1.1b
@@ -45,7 +47,7 @@ const dataToHTML = (course) => {
     // modify this to be more detailed
 
     let status;
-    if (isClassFull(course)) {
+    if (!isClassOpen(course)) {
         status = `<i class = "fa-solid fa-circle-xmark"></i> Closed`;
     } else {
         status = `<i class = "fa-solid fa-circle-check"></i> Open`;
@@ -84,9 +86,13 @@ const showMatchingCourses = () => {
 
     let matches = courseList.filter(doesTermMatch);
 
+    if(openOnly) {
+        matches = matches.filter(isClassOpen);
+    }
+
     matches.forEach((course) =>  {
+        //if the class is open, show it
         const snippet = dataToHTML(course);
         container.insertAdjacentHTML("beforeend", snippet);
-        
     });
 };
