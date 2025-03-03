@@ -28,6 +28,10 @@ const doesTermMatch = (course) => {
     if (course.Title.toLowerCase().includes(searchTerm.toLowerCase())) {
         match = true;
     }
+
+    if (course.Code.toLowerCase().includes(searchTerm.toLocaleUpperCase())) {
+        match = true;
+    }
     console.log(course.Title, searchTerm, match);
     return match;
     // instructior check 
@@ -39,9 +43,30 @@ const doesTermMatch = (course) => {
 // Part 1.2
 const dataToHTML = (course) => {
     // modify this to be more detailed
+
+    let status;
+    if (isClassFull(course)) {
+        status = `<i class = "fa-solid fa-circle-xmark"></i> Closed`;
+    } else {
+        status = `<i class = "fa-solid fa-circle-check"></i> Open`;
+    }
+
+    let seatsAvailable = course.EnrollmentMax - course.EnrollmentCurrent;
+    if (seatsAvailable < 0) {
+        seatsAvailable = 0;
+    }
+
     return `
+
         <section class="course">
-            ${course.Code}
+            <h2>${course.Code}: ${course.Title}</h2>
+            <p>
+                ${status} &bull; ${course.CRN} &bull; Seats Available: ${seatsAvailable}
+            </p>
+            <p>
+                ${course.Days || "TBD"} &bull; ${course.Location.FullLocation || "TBD"} &bull; ${course.Hours} credit hour(s)
+            </p>
+            <p><strong>${course.Instructors[0].Name}</strong></p>
         </section>
     `;
 };
