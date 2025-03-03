@@ -19,27 +19,19 @@ const search = (ev) => {
 const isClassOpen = (course) => {
     //if they're applying the "open only" filter: 
     
-    return course.EnrollmentMax < course.EnrollmentCurrent;
+    return course.EnrollmentCurrent < course.EnrollmentMax;
 };
 
 // Part 1.1b
+
 const doesTermMatch = (course) => {
+    let match = false;
 
-    let match = false; 
-
+    // title check
     if (course.Title.toLowerCase().includes(searchTerm.toLowerCase())) {
         match = true;
     }
-
-    if (course.Code.toLowerCase().includes(searchTerm.toLocaleUpperCase())) {
-        match = true;
-    }
-    console.log(course.Title, searchTerm, match);
     return match;
-    // instructior check 
-    //if (course.Title.toLowerCase().includes(searchTerm.toLowerCase())); {
-    //    match = true;
-    // }
 };
 
 // Part 1.2
@@ -57,7 +49,6 @@ const dataToHTML = (course) => {
     if (seatsAvailable < 0) {
         seatsAvailable = 0;
     }
-
     return `
 
         <section class="course">
