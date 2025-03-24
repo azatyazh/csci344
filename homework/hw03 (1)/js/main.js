@@ -5,7 +5,6 @@ let username = "alina";
 let password = "password";
 
 async function initializeScreen() {
-
     token = await getAccessToken(rootURL, username, password)
     showNav();
 
