@@ -8,6 +8,8 @@ async function initializeScreen() {
     token = await getAccessToken(rootURL, username, password);
     showNav();
     getPosts();
+    getStories();
+    getSuggestions();
 }
 
 function showNav() {
@@ -109,14 +111,48 @@ function showComments(comments) {
 }
 
 function getLikeButton(post) {
-    let iconClass = "far";
     if (post.current_user_like_id) {
-        iconClass = "fa-solid text-red-700";
+        //already liked
+        return `<button onclick="deleteLike(${post.current_user_like_id})"><i class="fa-solid text-red-700 fa-heart"></i></button>`
+    } else {
+        //not liked
+        return `
+        <button onclick="createLike(${post.id})">
+                <i class="far fa-heart"></i>
+         </button>`;
     }
-    return `
-        <button onclick="toggleLike(${post.id})">
-            <i class="${iconClass} fa-heart"></i>
-        </button>`;
+}
+
+window.createLike = async function(postID) {
+    const postData = {
+        post_id: postID,
+    };
+
+    const response = await fetch(
+        "https://photo-app-secured.herokuapp.com/api/likes/",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(postData),
+        }
+    );
+    const data = await response.json();
+    console.log(data);
+}
+
+window.deleteLike = async function(heartId) {
+    const response = await fetch(`https://photo-app-secured.herokuapp.com/api/likes/${heartId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    });
+    const data = await response.json();
+    console.log(data);
 }
 
 function getBookmarkButton(post) {
@@ -163,6 +199,60 @@ window.deleteBookmark = async function(bookmarkId) {
     const data = await response.json();
     console.log(data);
 }
+
+//stories 
+async function getStories() {
+    
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/stories/", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+    drawStories(data);
+}
+
+function drawStories(stories) {
+    const header = document.querySelector("main header");
+    stories.forEach(story => {
+        const template = `
+            <div class="flex flex-col justify-center items-center">
+                <img src="${story.user.thumb_url}" alt="image random 5" class="rounded-full border-4 border-gray-300" />
+                <p class="text-xs text-gray-500">${story.user.username}</p>
+            </div>
+        `;
+        header.insertAdjacentHTML("beforeend", template);
+    })
+}
+
+//suggested accounts 
+async function getSuggestions() {
+    const response = await fetch("https://photo-app-secured.herokuapp.com/api/suggestions/", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '9aac2ea1-b08a-4289-a27d-e02ac1a5b507'
+        }
+    });
+    const data = await response.json();
+    console.log(data);
+    
+}
+
+function drawSuggestions(suggested) {
+    const header = document.querySelector("main header");
+    suggested.forEach(suggested => {
+        const template = `
+
+        `;
+        header.insertAdjacentHTML("beforeend", template);
+    } )
+}
+
+
 
 
 // after all of the functions are defined, invoke initialize at the bottom:
