@@ -104,3 +104,40 @@ const statuses = [
  *   4. create a function that returns the total number of retweets 
  *      (across all of the statuses in the list) (use reduce).
  */
+
+//if you understand this one you understand the exam 
+//   1. create a function that returns a list of all of the image_urls (use map and filter)
+
+function getImageURLs() {
+    //I give you the object you give me back an image
+    const newArray = statuses.map(status => status.image_url);
+    newArray = newArray.filter(imageURL => imageURL !== undefined);
+    return newArray;
+}
+
+function getImageURLs() {
+    //I give you the object you give me back an image
+
+    // .map((walter) => walter.image_url)
+    // .filter(imgURL => )
+    const newArray = statuses.map(status => status.image_url);
+    newArray = newArray.filter(imageURL => imageURL !== undefined);
+    return newArray;
+}
+
+const urls = getImageURLs();
+console.log(urls);
+
+
+// const images = (item) => ``
+
+// const paragaphify = (item) => `<p>${item}</p>`; 
+
+// const paragraphArray = myNums.map(paragaphify);
+// console.log(paragaphify);
+
+//the way to run is node 06-practice
+
+
+//object destructuring task 1 and 2 practice should know how to do 
+//array function practice dont worry about reduce 
