@@ -11,6 +11,7 @@ async function initializeScreen() {
     getStories();
     getSuggestions();
     getProfile();
+   // getFollowers()
 }
 
 function showNav() {
@@ -53,16 +54,15 @@ function showPosts(posts) {
         <section class="bg-white border mb-10">
         <div class="p-4 flex justify-between">
             <h3 class="text-lg font-Comfortaa font-bold">${post.user.username}</h3>
-            <button aria-label="Three dots" class="icon-button"><i class="fas fa-ellipsis-h"></i></button>
+            <button aria-label="More options for this post" class="icon-button"><i class="fas fa-ellipsis-h"></i></button>
         </div>
-        <img src="${post.image_url}" alt="${post.alt_text}" width="300" height="300"
-            class="w-full bg-cover">
+        <img src="${post.image_url}" alt="${post.alt_text}" width="300" height="300" class="w-full bg-cover" >
         <div class="p-4">
             <div class="flex justify-between text-2xl mb-3">
                 <div>
                     ${ getLikeButton(post) }
-                    <button aria-label="comments" ><i class="far fa-comment"></i></button>
-                    <button aria-label="comments"><i class="far fa-paper-plane"></i></button>
+                    <button aria-label="View comments" ><i class="far fa-comment"></i></button>
+                    <button aria-label="Share this post"><i class="far fa-paper-plane"></i></button>
                 </div>
                 <div>
                     ${ getBookmarkButton(post) }
@@ -96,7 +96,7 @@ function showComments(comments) {
     if(comments.length > 1) {
         const lastComment = comments[comments.length-1];
         return `
-            <button aria-label="Comments" class="text-sm mb-3">view all ${comments.length} comments</button>
+            <button aria-label="View all comments" class="text-sm mb-3">view all ${comments.length} comments</button>
             <p class="text-sm mb-3">
                 <strong>${lastComment.user.username}</strong> ${lastComment.text}
             </p>
@@ -261,6 +261,29 @@ function drawSuggestions(suggestionList) {
     })
 }
 
+// //EXTRA CREDIT: follow and unfollow 
+
+// //await / async syntax:
+// async function getAndShowData() {
+//     const response = await fetch("https://photo-app-secured.herokuapp.com/api/following/", {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${token}`,
+//         },
+//         body: JSON.stringify(postData)
+//     });
+//     const data = await response.json();
+//     console.log(data);
+// }
+
+// function drawFollower(?){
+//     const header = document.querySelector("#");
+//     ?.forEach
+// }
+
+
+//profile 
 async function getProfile() {
     const response = await fetch("https://photo-app-secured.herokuapp.com/api/profile/", {
         method: "GET",
@@ -279,7 +302,7 @@ function drawProfile(theProfile) {
         const template = `
         <header id="theprofile" class="flex gap-4 items-center">
             <img src="${theProfile.thumb_url}" alt="image random 11" class="rounded-full w-16" />
-            <h2 class="font-Comfortaa font-bold text-2xl">${theProfile.first_name}</h2>
+            <h2 class="font-Comfortaa font-bold text-2xl">${theProfile.username}</h2>
         </header>
         `;
         header.insertAdjacentHTML("beforeend", template);
