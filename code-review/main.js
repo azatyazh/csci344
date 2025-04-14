@@ -48,11 +48,12 @@ console.log("Hello World!");
 // }
 // else console.log("none");
 
-let i = 1; 
+// let i = 1; 
 
-while (i < 99) {
-    console.log(i++); 
-}
+// while (i < 99) {
+//     console.log(i++); 
+// }
+
 
 
 
