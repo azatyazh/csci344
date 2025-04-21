@@ -13,14 +13,12 @@ FROM users;
 
 
 
-
 -- Exercise 4: Filtering
 
 
 
 
 -- Exercise 5: Filtering with logical operators
-
 
 
 
@@ -35,13 +33,20 @@ FROM users;
 
 
 -- Exercise 8: Joining: two tables
-
-
+SELECT posts.id, posts.image_url, posts.user_id
+FROM posts
+JOIN users ON posts.user_id = users.id
+WHERE users.first_name = 'Nicholas' or users.first_name = 'Rebecca';
 
 
 -- Exercise 9: More joining practice: two tables
+SELECT posts.id, posts.pub_date, posts.user_id
+FROM posts
+JOIN following 
+	ON posts.user_id = following.following_id
+WHERE following.user_id = 26;
 
-
+?
 
 
 -- Exercise 10: More joining practice: three tables (Optional)

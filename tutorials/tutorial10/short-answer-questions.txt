@@ -2,7 +2,7 @@ Please answer the following two questions:
 
 1. What is a join (just in your own words) and why is it useful?
 
-
+A 'join' is a way to join to tables to answer more complex answers, such as finding a name where there's no name 
 
 
 2. Consider the structure of the posts table: why would you want to use a foreign key (user_id) to the users table instead of storing the username, first_name, and last_name in the posts table?
