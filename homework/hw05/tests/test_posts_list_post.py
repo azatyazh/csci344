@@ -9,7 +9,7 @@ class TestPostListEndpoint(unittest.TestCase):
     def setUp(self):
         self.current_user = utils.get_user_12()
         pass
-
+#all good
     def test_posts_get_defaults_to_20(self):
         response = utils.issue_get_request(
             root_url + "/api/posts", self.current_user.get("id")
@@ -17,7 +17,7 @@ class TestPostListEndpoint(unittest.TestCase):
         data = response.json()
         self.assertLessEqual(len(data), 20)
         self.assertEqual(response.status_code, 200)
-
+#all good
     def test_posts_get_has_required_data(self):
         response = utils.issue_get_request(
             root_url + "/api/posts", self.current_user.get("id")
@@ -37,7 +37,7 @@ class TestPostListEndpoint(unittest.TestCase):
         )
         self.assertTrue("comments" in post and type(post["comments"]) == list)
         self.assertEqual(response.status_code, 200)
-
+#all good
     def test_posts_get_limit_argument(self):
         response = utils.issue_get_request(
             root_url + "/api/posts?limit=3", self.current_user.get("id")
