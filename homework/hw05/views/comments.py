@@ -125,7 +125,6 @@ class CommentDetailEndpoint(Resource):
                 json.dumps({"Message": f"You are not allowed to modify post id"}),
                 mimetype="application/json",
                 status=404,
-                #404?
             )
         
         # Now do the delete:
@@ -137,8 +136,7 @@ class CommentDetailEndpoint(Resource):
             mimetype="application/json",
             status=200,
         )
-
-        # print(id)
+    
 
 def initialize_routes(api, current_user):
     api.add_resource(
