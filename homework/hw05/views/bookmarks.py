@@ -93,7 +93,6 @@ class BookmarksListEndpoint(Resource):
                 status=400,
             )
 
-
         new_bookmark = Bookmark(
             user_id = self.current_user.id, 
             post_id = post_id
