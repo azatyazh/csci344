@@ -14,13 +14,12 @@ class ProfileDetailEndpoint(Resource):
         self.current_user = current_user
 
     def get(self):
-        # TODO: Add GET logic...
+        
         return Response(
-            json.dumps({}),
+            json.dumps(self.current_user.to_dict()),
             mimetype="application/json",
             status=200,
         )
-
 
 def initialize_routes(api, current_user):
     api.add_resource(

@@ -9,7 +9,7 @@ class TestPostListEndpoint(unittest.TestCase):
     def setUp(self):
         self.current_user = utils.get_user_12()
         pass
-#all good
+# # #all good
     def test_posts_get_defaults_to_20(self):
         response = utils.issue_get_request(
             root_url + "/api/posts", self.current_user.get("id")
@@ -17,7 +17,9 @@ class TestPostListEndpoint(unittest.TestCase):
         data = response.json()
         self.assertLessEqual(len(data), 20)
         self.assertEqual(response.status_code, 200)
-#all good
+
+
+# # #all good
     def test_posts_get_has_required_data(self):
         response = utils.issue_get_request(
             root_url + "/api/posts", self.current_user.get("id")
@@ -37,7 +39,7 @@ class TestPostListEndpoint(unittest.TestCase):
         )
         self.assertTrue("comments" in post and type(post["comments"]) == list)
         self.assertEqual(response.status_code, 200)
-#all good
+# # #all good
     def test_posts_get_limit_argument(self):
         response = utils.issue_get_request(
             root_url + "/api/posts?limit=3", self.current_user.get("id")
@@ -45,7 +47,7 @@ class TestPostListEndpoint(unittest.TestCase):
         data = response.json()
         self.assertEqual(len(data), 3)
         self.assertEqual(response.status_code, 200)
-
+# all good 
     def test_posts_get_bad_limit_argument_handled(self):
         response = utils.issue_get_request(
             root_url + "/api/posts?limit=80", self.current_user.get("id")
@@ -56,7 +58,7 @@ class TestPostListEndpoint(unittest.TestCase):
             root_url + "/api/posts?limit=abc", self.current_user.get("id")
         )
         self.assertEqual(response.status_code, 400)
-
+# all good
     def test_posts_get_is_authorized(self):
         authorized_user_ids = utils.get_authorized_user_ids(self.current_user.get("id"))
         response = utils.issue_get_request(
@@ -68,7 +70,7 @@ class TestPostListEndpoint(unittest.TestCase):
             # check that user has access to every post:
             # print(self.current_user.get('id'), '-', post.get('user').get('id'), authorized_user_ids)
             self.assertTrue(post.get("user").get("id") in authorized_user_ids)
-
+# all good 
     def test_post_post(self):
         body = {
             "image_url": "https://picsum.photos/600/430?id=668",
@@ -130,7 +132,7 @@ class TestPostListEndpoint(unittest.TestCase):
 
         # and check that it's gone:
         self.assertEqual(utils.get_post_by_id(new_post.get("id")), [])
-
+# all good
     def test_post_post_bad_data_400_error(self):
         url = "{0}/api/posts".format(root_url)
 

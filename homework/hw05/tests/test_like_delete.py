@@ -14,12 +14,17 @@ class TestLikePostDetailEndpoint(unittest.TestCase):
     def test_like_post_delete_valid_200(self):
         liked_post = utils.get_liked_post_by_user(self.current_user.get("id"))
         url = "{0}/api/likes/{1}".format(root_url, liked_post.get("id"))
+
         # print(url)
+
         response = utils.issue_delete_request(url, user_id=self.current_user.get("id"))
+
         # print(response.text)
+
         self.assertEqual(response.status_code, 200)
 
         # restore the post in the database:
+        
         utils.restore_liked_post(liked_post)
 
     def test_like_post_delete_invalid_id_format_404(self):
